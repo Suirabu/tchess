@@ -10,7 +10,7 @@ static const char* ASCII_PIECES[] = {
     "P", "N", "B", "R", "Q", "K",
 };
 static const char* UNICODE_PIECES[] = {
-    ".",
+    " ",
     "♟", "♞", "♝", "♜", "♛", "♚",
     "♙", "♘", "♗", "♖", "♕", "♔",
 };
@@ -70,6 +70,26 @@ void draw_board_unicode(Board board) {
             printf("%s ", get_piece_str(sq, UNICODE_PIECES));
         }
 
+        putchar('\n');
+    }
+}
+
+void draw_board_graphical(Board board) {
+    for(int rank = 0; rank < 8; ++rank) {
+        printf("\033[30m");     // Set text color to black
+    
+        for(int file = 0; file < 8; ++file) {
+            if((file + rank) % 2 == 0) {
+                printf("\033[47m"); // Set background color to white
+            } else {
+                printf("\033[46m"); // Set background color to cyan
+            }
+
+            Square sq = board.squares[rank * 8 + file];
+            printf("%s ", get_piece_str(sq, UNICODE_PIECES));
+        }
+
+        printf("\033[0m");  // Clear color formatting options
         putchar('\n');
     }
 }

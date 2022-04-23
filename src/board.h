@@ -25,5 +25,6 @@ typedef struct {
 
 void draw_board_ascii(Board board);
 void draw_board_unicode(Board board);
+void draw_board_graphical(Board board);
 
 #endif // BOARD_H
