@@ -9,6 +9,11 @@ static const char* ASCII_PIECES[] = {
     "p", "n", "b", "r", "q", "k",
     "P", "N", "B", "R", "Q", "K",
 };
+static const char* UNICODE_PIECES[] = {
+    ".",
+    "♟", "♞", "♝", "♜", "♛", "♚",
+    "♙", "♘", "♗", "♖", "♕", "♔",
+};
 
 static const char* get_piece_str(Square sq, const char** pieces) {
     switch(sq) {
@@ -47,11 +52,22 @@ static const char* get_piece_str(Square sq, const char** pieces) {
     }
 }
 
-void draw_board(Board board) {
+void draw_board_ascii(Board board) {
     for(int rank = 0; rank < 8; ++rank) {
         for(int file = 0; file < 8; ++file) {
             Square sq = board.squares[rank * 8 + file];
             printf("%s ", get_piece_str(sq, ASCII_PIECES));
+        }
+
+        putchar('\n');
+    }
+}
+
+void draw_board_unicode(Board board) {
+    for(int rank = 0; rank < 8; ++rank) {
+        for(int file = 0; file < 8; ++file) {
+            Square sq = board.squares[rank * 8 + file];
+            printf("%s ", get_piece_str(sq, UNICODE_PIECES));
         }
 
         putchar('\n');
