@@ -23,4 +23,6 @@ typedef struct {
     Square squares[64];
 } Board;
 
+void draw_board(Board board);
+
 #endif // BOARD_H
