@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include "board.h"
 
 int main(void) {
-    printf("Hello, Tchess!\n");
+    Board board = { 0 }; 
     return 0;
 }
