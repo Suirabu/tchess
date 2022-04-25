@@ -3,6 +3,7 @@
 
 #include "board.h"
 #include "error.h"
+#include "piece.h"
 
 static const char* ASCII_PIECES[] = {
     ".",
